@@ -73,9 +73,8 @@ var docMod = document.lastModified; // gets last modified date and time of the i
         var img = new Image();
         img.onload = function() {
           /*This finally draws the image onto the first drawing canvas. The specific canvas is referred to by "context". This is established down in the HTML part of the file just under the first <canvas> tag. If we weren't worried about fixing an iPhone bug we would use context.drawImage(image, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500) instead of drawImageIOSFix */
-        
+          document.getElementById("myCanvas").getContext("2d").fillText("");
           drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500);
-	  document.getElementById("2d").fillText("");
 
           /*  +++++++++++++++ BEGIN IMAGE PROCESSING +++++++++++++++ */
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
@@ -99,7 +98,11 @@ var docMod = document.lastModified; // gets last modified date and time of the i
     } // end of the else statement if file in NOT an image
   }); // end of the fileInput.addEventListener function
  } // end of the window.onload function	
-	
+
+	function resetBoard()
+	{
+
+	}
 </script>
   
   
@@ -133,15 +136,16 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 <body>
   <div data-role="page">
     <div data-role="header">
-    <h1>Primary Colors</h1></div><!-- /header -->
+    <h1>Dartboard</h1></div><!-- /header -->
     <div data-role="content">	
-      <h2>Push button to take picture.</h2>
+      <h2>Upload a target image.</h2>
       <div>
-        Press orange button to create or choose image file:
+        Press button to choose image file:
         <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
       </div>
       <div id="messageDisplayArea"></div>
-      
+
+	    <center>
       <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
       <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
@@ -150,6 +154,9 @@ var docMod = document.lastModified; // gets last modified date and time of the i
         context.fillStyle = "black";
         context.fillText("Original image will go here", 10, 20);
       </script>
+	    </center>
+
+	    <a onclick="resetBoard();" class="w3-btn w3-grey w3-round">I'm done</a>
 
    </div><!-- /content -->  
   
