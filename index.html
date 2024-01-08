@@ -116,6 +116,11 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 		targetImg.onload = function(){
 			drawImageIOSFix(document.getElementById("myCanvas").getContext("2d"), dart, 0, 0, dart.naturalWidth, dart.naturalHeight, throwX, throwY, 100, 78, 0, 0);
 		}
+
+		console.log("Dart thrown!");
+		console.log(targetImg.width + " " + targetImg.height);
+		console.log(throwX + " " + throwY);
+		console.log(dart.width + " " + dart.height);
 	}
 	
 	function resetBoard()
