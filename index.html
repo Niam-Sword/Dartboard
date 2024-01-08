@@ -103,7 +103,7 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 	  var centerdy = (canvasHeight - img.height) / 2;
 
 
-          drawImageIOSFix(context,img, 0, 0, img.width, img.height, centerdx, centerdy, 500, 500);
+          drawImageIOSFix(context,img, 0, 0, img.width, img.height, centerdx, centerdy, img.width, img.height);
 
 	  if(img.width < 200 || img.height < 200)
 	  {
