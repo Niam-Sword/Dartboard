@@ -98,7 +98,7 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 		  }
 	  }
 
-          drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 500, 500);
+	  context.drawImage(img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0);
 
 	  if(img.width < 200 || img.height < 200)
 	  {
@@ -137,7 +137,7 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 		var throwY = Math.random() * (targetCanvas.height - 78);
 
 		dart.onload = function(){
-			drawImageIOSFix(document.getElementById("myCanvas").getContext("2d"), dart, 0, 0, dart.naturalWidth, dart.naturalHeight, throwX, throwY, 100, 78, 0, 0);
+			context.drawImage(dart, 0, 0, dart.naturalWidth, dart.naturalHeight, throwX, throwY, 100, 78);
 
 			console.log("Dart thrown!");
 		}
