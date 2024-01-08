@@ -81,7 +81,20 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 	  console.log("Image Width: " + img.width);
 	  console.log("Image Height: " + img.height);
 
-          drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 500, 500);
+	  var aspectRatio = img.width / img.height;
+	  if(aspectRatio > 1)
+	  {
+		  drawImageIOSFix(context, img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 500, (500 / aspectRatio));
+	  }
+	  else if(aspectRatio < 1)
+	  {
+		  drawImageIOSFix(context, img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, (500 * aspectRatio), 500);
+	  }
+	  else
+	  {
+		  drawImageIOSFix(context, img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 500, 500);
+	  }
+			
 
 	  if(img.width < 200 || img.height < 200)
 	  {
