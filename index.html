@@ -20,6 +20,9 @@
 <!--Javascript code.-->
 <script>
 var img;
+var dart = new Image();
+dart.src = "https://i.imgur.com/PaeKcz4.png";
+	
 var docMod = document.lastModified; // gets last modified date and time of the index.html file
   console.log("This file last modified  " + docMod); // displays last modified date and time in the javascipt browser console 
 
@@ -107,8 +110,6 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 	function throwDart()
 	{
 		var targetImg = img;
-		var dart = new Image();
-		dart.src = "https://i.imgur.com/PaeKcz4.png";
 		
 		var throwX = Math.random() * (targetImg.width - 100);
 		var throwY = Math.random() * (targetImg.height - 78);
