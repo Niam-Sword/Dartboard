@@ -75,35 +75,39 @@ var docMod = document.lastModified; // gets last modified date and time of the i
         img = new Image();
         img.onload = function() {
           /*This finally draws the image onto the first drawing canvas. The specific canvas is referred to by "context". This is established down in the HTML part of the file just under the first <canvas> tag. If we weren't worried about fixing an iPhone bug we would use context.drawImage(image, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500) instead of drawImageIOSFix */
-	  console.log("Width: " + img.width);
-	  console.log("Height: " + img.height);
+	  console.log("Image Width: " + img.width);
+	  console.log("Image Height: " + img.height);
 		
-	  var aspectRatio = img.naturalWidth / img.naturalHeight;
-	  var canvasWidth = document.getElementById("myCanvas").width;
-		console.log(canvasWidth);
-	  var canvasHeight = document.getElementById("myCanvas").height;
-		console.log(canvasHeight);
-
-	  if(img.width > canvasWidth && aspectRatio > 1)
+	  if(img.width > 500 && img.height <= 500)
 	  {
-		img.width = canvasWidth;
-		img.height = canvasWidth / aspectRatio;
+		  img.height = 500 / (img.width / img.height);
+		  img.width = 500;
 	  }
-	  else if(img.height > canvasHeight && aspectRatio < 1)
+	  else if(img.height > 500 && img.width <= 500)
 	  {
-		img.height = canvasHeight;
-		img.width = canvasHeight * aspectRatio;
+		  img.width = 500 * (img.width / img.height);
+		  img.height = 500;
 	  }
-	  else if(img.width > canvasWidth && aspectRatio == 1)
+	  else if(img.width > 500 && img.height > 500)
 	  {
-		img.width = canvasWidth;
-		img.height = canvasWidth;
+		  if((img.width / img.height) > 1)
+		  {
+			  img.height = 500 / (img.width / img.height);
+			  img.width = 500;
+		  }
+		  else
+		  {
+			  img.width = 500 * (img.width / img.height);
+			  img.height = 500;
+		  }
 	  }
+	  console.log("Scaled Dimensions: " + img.width + "x" + img.height);		  
+		
 	  var centerdx = (canvasWidth - img.width) / 2;
 	  var centerdy = (canvasHeight - img.height) / 2;
 
 
-          drawImageIOSFix(context,img, 0, 0, img.width, img.height, centerdx, centerdy, img.width, img.height);
+          drawImageIOSFix(context,img, 0, 0, img.width, img.height, centerdx, centerdy, 0, 0);
 
 	  if(img.width < 200 || img.height < 200)
 	  {
