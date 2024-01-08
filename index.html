@@ -103,8 +103,8 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 	  }
 	  console.log("Scaled Dimensions: " + img.width + "x" + img.height);		  
 		
-	  var centerdx = (canvasWidth - img.width) / 2;
-	  var centerdy = (canvasHeight - img.height) / 2;
+	  var centerdx = (500 - img.width) / 2;
+	  var centerdy = (500 - img.height) / 2;
 
 
           drawImageIOSFix(context,img, 0, 0, img.width, img.height, centerdx, centerdy, 0, 0);
@@ -153,10 +153,6 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 
 	}
 	
-	function resetBoard()
-	{
-		
-	}
 </script>
   
   
@@ -214,7 +210,7 @@ var docMod = document.lastModified; // gets last modified date and time of the i
   
 <!--Footer!-->
 <footer class="w3-bottom w3-container w3-flat-carrot">
-	<p>let it all out <center><a onclick="resetBoard();" class="w3-btn w3-grey w3-round">I'm done</a></center></p>
+	<p>let it all out <center><a onclick="window.location.href=window.location.href" class="w3-btn w3-grey w3-round">I'm done</a></center></p>
 </footer>
 </div>
 
