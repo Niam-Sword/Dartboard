@@ -94,7 +94,7 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 			  yoffset = (canvas.height - (img.height / scalar)) / 2;
 			  console.log("Canvas height: " + canvas.height + ", Offset: " + yoffset);
 		  }
-		  drawImageIOSFix(context, img, xoffset, yoffset, img.naturalWidth, img.naturalHeight, 0, 0, 500, (500 / aspectRatio));
+		  drawImageIOSFix(context, img, 0, 0, img.naturalWidth, img.naturalHeight, xoffset, yoffset, 500, (500 / aspectRatio));
 	  }
 	  else if(aspectRatio < 1)
 	  {
@@ -104,11 +104,11 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 			  xoffset = (canvas.width - (img.width / scalar)) / 2;
 			  console.log("Canvas width: " + canvas.width + ", Offset: " + xoffset);
 		  }
-		  drawImageIOSFix(context, img, xoffset, yoffset, img.naturalWidth, img.naturalHeight, 0, 0, (500 * aspectRatio), 500);
+		  drawImageIOSFix(context, img, 0, 0, img.naturalWidth, img.naturalHeight, xoffset, yoffset, (500 * aspectRatio), 500);
 	  }
 	  else
 	  {
-		  drawImageIOSFix(context, img, xoffset, yoffset, img.naturalWidth, img.naturalHeight, 0, 0, 500, 500);
+		  drawImageIOSFix(context, img, 0, 0, img.naturalWidth, img.naturalHeight, xoffset, yoffset, 500, 500);
 	  }
 			
 
