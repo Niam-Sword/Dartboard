@@ -75,11 +75,28 @@ var docMod = document.lastModified; // gets last modified date and time of the i
         img = new Image();
         img.onload = function() {
           /*This finally draws the image onto the first drawing canvas. The specific canvas is referred to by "context". This is established down in the HTML part of the file just under the first <canvas> tag. If we weren't worried about fixing an iPhone bug we would use context.drawImage(image, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 600, 500) instead of drawImageIOSFix */
-
+	  console.log("Width: " + img.width);
+	  console.log("Height: " + img.height);
+		
 	  var aspectRatio = img.naturalWidth / img.naturalHeight;
 	  var canvasWidth = document.getElementById("myCanvas").width;
-	  var scaledImgHeight = canvasWidth / aspectRatio;
-          drawImageIOSFix(context,img, 0, 0, canvasWidth, scaledImgHeight, 0, 0, 500, 500);
+	  var canvasHeight = document.getElementById("myCanvas").height;
+
+	  if(img.width > canvasWidth && aspectRatio > 1)
+	  {
+		img.width = canvasWidth;
+		img.height = canvasWidth / aspectRatio;
+	  }
+	  else if(img.height > canvasHeight && aspectRatio < 1)
+	  {
+		img.height = canvasHeight;
+		img.width = canvasHeight * aspectRatio;
+	  }
+	  var centerdx = (canvasWidth - img.width) / 2;
+	  var centerdy = (canvasHeight - img.height) / 2;
+
+
+          drawImageIOSFix(context,img, 0, 0, img.width, img.height, centerdx, centerdy, 500, 500);
 
 	  if(img.width < 200 || img.height < 200)
 	  {
