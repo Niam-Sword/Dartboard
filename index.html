@@ -113,7 +113,9 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 		var throwX = Math.random() * (targetImg.width - 100);
 		var throwY = Math.random() * (targetImg.height - 78);
 
-		drawImageIOSFix(document.getElementById("myCanvas").getContext("2d"), dart, 0, 0, dart.naturalWidth, dart.naturalHeight, throwX, throwY, 100, 78, 0, 0);
+		targetImg.onload = function(){
+			drawImageIOSFix(document.getElementById("myCanvas").getContext("2d"), dart, 0, 0, dart.naturalWidth, dart.naturalHeight, throwX, throwY, 100, 78, 0, 0);
+		}
 	}
 	
 	function resetBoard()
