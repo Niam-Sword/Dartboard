@@ -78,31 +78,11 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 	  console.log("Image Width: " + img.width);
 	  console.log("Image Height: " + img.height);
 
-	  if(img.height > 500 || img.width > 500)
-	  {
-		  var aspectRatio = img.width / img.height;
-		  if(aspectRatio > 1)
-		  {
-			  img.width = 500;
-			  img.height = 500 / aspectRatio;
-		  }
-		  else if(aspectRatio < 1)
-		  {
-			  img.height = 500;
-			  img.width = 500 * aspectRatio;
-		  }
-		  else
-		  {
-			  img.width = 500;
-			  img.height = 500;
-		  }
-	  }
-
           drawImageIOSFix(context,img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, 500, 500);
 
 	  if(img.width < 200 || img.height < 200)
 	  {
-		messageDisplayArea.innerHTML = "Warning - image size may be too small. Please upload an image larger than 200x200 pixels.";
+		messageDisplayArea.innerHTML = "Warning - image size may be too small. It is recommended that you upload an image larger than 200x200 pixels.";
 	  }
           /*  +++++++++++++++ BEGIN IMAGE PROCESSING +++++++++++++++ */
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
