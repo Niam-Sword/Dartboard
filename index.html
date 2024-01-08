@@ -107,12 +107,12 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 
 	function throwDart()
 	{
-		var targetImg = img;
+		var targetCanvas = document.getElementById("myCanvas");
 		var dart = new Image();
 		dart.src = "dart.png";
 		
-		var throwX = Math.random() * (targetImg.width - 100);
-		var throwY = Math.random() * (targetImg.height - 78);
+		var throwX = Math.random() * (targetCanvas.width - 100);
+		var throwY = Math.random() * (targetCanvas.height - 78);
 
 		dart.onload = function(){
 			drawImageIOSFix(document.getElementById("myCanvas").getContext("2d"), dart, 0, 0, dart.naturalWidth, dart.naturalHeight, throwX, throwY, 100, 78, 0, 0);
