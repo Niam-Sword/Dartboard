@@ -100,7 +100,7 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 		  if(img.height > 500)
 		  {
 			  scalar = img.height / 500;
-			  xoffset = (500 - (img.width / scalar)) / 2;
+			  xoffset = (500 - (img.width * scalar)) / 2;
 		  }
 		  drawImageIOSFix(context, img, xoffset, yoffset, img.naturalWidth, img.naturalHeight, 0, 0, (500 * aspectRatio), 500);
 	  }
