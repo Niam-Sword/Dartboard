@@ -97,7 +97,7 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 		  else
 		  {
 			  scalar = 500 / img.width;
-			  yoffset = (canvas.height - (img.height / scalar)) / 2;
+			  yoffset = (canvas.height - (img.height * scalar)) / 2;
 			  console.log("Canvas height: " + canvas.height + ", Offset: " + yoffset);
 		  }
 		  drawImageIOSFix(context, img, 0, 0, img.naturalWidth, img.naturalHeight, xoffset, yoffset, 500, (500 / aspectRatio));
@@ -113,7 +113,7 @@ var docMod = document.lastModified; // gets last modified date and time of the i
 		  else
 		  {
 			  scalar = 500 / img.height;
-			  xoffset = (canvas.width - (img.width / scalar)) / 2;
+			  xoffset = (canvas.width - (img.width * scalar)) / 2;
 			  console.log("Canvas width: " + canvas.width + ", Offset: " + xoffset);
 		  }
 		  drawImageIOSFix(context, img, 0, 0, img.naturalWidth, img.naturalHeight, xoffset, yoffset, (500 * aspectRatio), 500);
